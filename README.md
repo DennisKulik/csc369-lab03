@@ -19,3 +19,7 @@ Canada,1	/icons/gnu-head-tiny.jpg
 Canada,1	/icons/mailman.jpg
 Canada,1	/images/image004.jpg
 Canada,2	/images/image005.jpg
+
+
+https://stackoverflow.com/questions/37910096/mapreduce-composite-key-sample-doesnt-show-the-desired-output
+https://stackoverflow.com/questions/64148377/mapper-output-key-descending-order
