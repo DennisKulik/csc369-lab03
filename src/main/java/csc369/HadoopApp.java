@@ -31,33 +31,6 @@ public class HadoopApp {
 	if (otherArgs.length < 4) {
 	    System.out.println("Expected parameters: <job name> <access log path> <hostname-country path> <output dir>");
 	    System.exit(-1);
-	} else if ("UserMessages".equalsIgnoreCase(otherArgs[0])) {
-
-	    MultipleInputs.addInputPath(job, new Path(otherArgs[1]),
-					KeyValueTextInputFormat.class, UserMessages.UserMapper.class );
-	    MultipleInputs.addInputPath(job, new Path(otherArgs[2]),
-					TextInputFormat.class, UserMessages.MessageMapper.class ); 
-
-	    job.setReducerClass(UserMessages.JoinReducer.class);
-
-	    job.setOutputKeyClass(UserMessages.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(UserMessages.OUTPUT_VALUE_CLASS);
-	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[3]));
-
-	} else if ("WordCount".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(WordCount.ReducerImpl.class);
-	    job.setMapperClass(WordCount.MapperImpl.class);
-	    job.setOutputKeyClass(WordCount.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(WordCount.OUTPUT_VALUE_CLASS);
-	    FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
-	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
-	} else if ("AccessLog".equalsIgnoreCase(otherArgs[0])) {
-	    job.setReducerClass(AccessLog.ReducerImpl.class);
-	    job.setMapperClass(AccessLog.MapperImpl.class);
-	    job.setOutputKeyClass(AccessLog.OUTPUT_KEY_CLASS);
-	    job.setOutputValueClass(AccessLog.OUTPUT_VALUE_CLASS);
-	    FileInputFormat.addInputPath(job, new Path(otherArgs[1]));
-	    FileOutputFormat.setOutputPath(job, new Path(otherArgs[2]));
 	} else if ("CountryRequestCount".equalsIgnoreCase(otherArgs[0])) {
 		String tempOutput = otherArgs[3] + "_temp";
 		Job job1 = Job.getInstance(conf, "CountryRequestCount Phase 1");
@@ -114,7 +87,6 @@ public class HadoopApp {
 	    job1.setOutputValueClass(IntWritable.class);
 	    FileOutputFormat.setOutputPath(job1, new Path(tempOutput));
 		job1.waitForCompletion(true);
-		// System.exit(job1.waitForCompletion(true) ? 0 : 1);
 
 		Job job2 = Job.getInstance(conf, "CountryURLCount Phase 2");
 		String tempTempOutput = tempOutput + "_temp";
@@ -129,7 +101,6 @@ public class HadoopApp {
 		FileInputFormat.addInputPath(job2, new Path(tempOutput));
 		FileOutputFormat.setOutputPath(job2, new Path(tempTempOutput));
 		job2.waitForCompletion(true);
-		// System.exit(job2.waitForCompletion(true) ? 0 : 1);
 
 		Job job3 = Job.getInstance(conf, "CountryURLCount Phase 3");
 		job3.setJarByClass(CountryURLCount.class);
@@ -157,7 +128,6 @@ public class HadoopApp {
 	    job1.setOutputValueClass(Text.class);
 	    FileOutputFormat.setOutputPath(job1, new Path(tempOutput));
 		job1.waitForCompletion(true);
-		// System.exit(job1.waitForCompletion(true) ? 0 : 1);
 
 		Job job2 = Job.getInstance(conf, "URLCountryList Phase 2");
 		String tempTempOutput = tempOutput + "_temp";
@@ -171,7 +141,6 @@ public class HadoopApp {
 		job2.setOutputValueClass(Text.class);
 		FileInputFormat.addInputPath(job2, new Path(tempOutput));
 		FileOutputFormat.setOutputPath(job2, new Path(otherArgs[3]));
-		// job2.waitForCompletion(true);
 		System.exit(job2.waitForCompletion(true) ? 0 : 1);
 
 	} else {
