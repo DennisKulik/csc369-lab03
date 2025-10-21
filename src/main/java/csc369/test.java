@@ -19,7 +19,7 @@ public class test {
         List<Object> list3 = new ArrayList<>(List.of(parts2[0], List.of(parts2[1], "2")));
         List<Object> list4 = new ArrayList<>(List.of(parts1[0], List.of("1", "1")));
         List<Object> list5 = new ArrayList<>(List.of(parts1[0], List.of(parts1[6], "2")));
-        System.out.println(line5.replace("\t", "\\t"));
+        // System.out.println(line5.replace("\t", "\\t"));
 
         String[] parts = line5.split("\t");
         

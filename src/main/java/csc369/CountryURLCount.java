@@ -105,9 +105,6 @@ public class CountryURLCount {
 
             CountryUrl customKey = new CountryUrl(new Text(parts[0]), new IntWritable(sum));
             context.write(customKey, new Text(parts[1]));
-
-            // String customString = parts[0] + ":" + sum;
-            // context.write(new Text(customString), new Text(parts[1]));
         }
     }
 
@@ -115,16 +112,15 @@ public class CountryURLCount {
         @Override
         protected void map(LongWritable key, Text value, Context context)
                 throws IOException, InterruptedException {
-            // input: "country,url\tcount"
+            // input: "country,count\turl"
 
-            // this isnt detecting the tabs for some reason so its not splitting right
             String one = value.toString();
             String[] parts = one.split("\t");
             
             String[] countryUrl = parts[0].split(",", 2);
-            int count = Integer.parseInt(parts[1]);
+            int count = Integer.parseInt(countryUrl[1]);
 
-            context.write(new CountryUrl(new Text(countryUrl[0]), new IntWritable(count)), new Text(countryUrl[1]));
+            context.write(new CountryUrl(new Text(countryUrl[0]), new IntWritable(count)), new Text(parts[1]));
         }
     }
 

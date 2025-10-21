@@ -1,0 +1,111 @@
+CountryRequestCount:
+input command:
+./gradlew run --args="CountryRequestCount input/access.log input/hostname_country.csv output"
+
+output:
+Unknown Location	812
+Intranet	198
+Canada	127
+United States	87
+Robot	80
+Israel	19
+Australia	17
+France	16
+Wherever You Want to Ship	13
+Germany	13
+United Kingdom	6
+Korea	4
+Spain	4
+Denmark	4
+Netherlands	2
+Los Alamos	1
+Taiwan	1
+Finland	1
+Mexico	1
+
+CountryURLCount:
+input command:
+./gradlew run --args="CountryURLCount input/access.log input/hostname_country.csv output"
+
+output snippet:
+Australia	/twiki/bin/view/Main/SpamAssassinAndPostFix	1
+Australia	/mailman/listinfo/cnc_notice	1
+Canada	/images/image005.jpg	2
+Canada	/images/msgops.JPG	2
+Canada	/	2
+Canada	/icons/mailman.jpg	1
+Canada	/LateEmail.html	1
+Canada	/SpamAssassin.html	1
+Canada	/cgi-bin/mailgraph.cgi/mailgraph_3.png	1
+Canada	/icons/PythonPowered.png	1
+Canada	/icons/gnu-head-tiny.jpg	1
+Canada	/images/image004.jpg	1
+Canada	/mailman/listinfo/ppwc	1
+Canada	/pipermail/cnc_notice/2003-December.txt	1
+Canada	/pipermail/cncce/2004-January/000001.html	1
+Canada	/twiki/bin/view/Main/WebHome	1
+Denmark	/favicon.ico	1
+Denmark	/twiki/bin/view/Main/WebHome	1
+Finland	/razor.html	1
+France	/	1
+France	/razor.html	1
+France	/twiki/pub/TWiki/TWikiLogos/twikiRobot46x50.gif	1
+Germany	/SpamAssassin.html	1
+Germany	/twiki/pub/TWiki/TWikiDocGraphics/help.gif	1
+Intranet	/cgi-bin/mailgraph.cgi/mailgraph_3_err.png	2
+Israel	/	1
+Korea	/mailman/listinfo/cncce	1
+Los Alamos	/razor.html	1
+Mexico	/razor.html	1
+Netherlands	/	1
+Netherlands	/SpamAssassin.html	1
+Robot	/robots.txt	5
+Robot	/twiki/bin/view/Main/DCCAndPostFix	1
+Robot	/twiki/bin/view/Sandbox/WebChanges	1
+Robot	/twiki/bin/view/Main/TWikiAdminGroup	1
+Robot	/twiki/bin/view/Main/SanJoseOffice	1
+Robot	/twiki/bin/view/Main/LondonOffice	1
+Robot	/twiki/bin/view/Know/WebStatistics	1
+...
+
+URLCountryList:
+input command:
+./gradlew run --args="URLCountryList input/access.log input/hostname_country.csv output" 
+
+output snippet:
+/	Canada, France, Israel, Netherlands, Robot, United States, Unknown Location
+/AmavisNew.html	United States, Unknown Location
+/DCC.html	United Kingdom
+/LateEmail.html	Canada, United States, Unknown Location
+/M83A	Taiwan
+/MSOffice/cltreq.asp?UL=1&ACT=4&BUILD=2614&STRMVER=4&CAPREQ=0	Unknown Location
+/RBL.html	Unknown Location
+/SpamAssassin.html	Canada, Germany, Netherlands, United States, Unknown Location
+/cgi-bin/mailgraph.cgi/mailgraph_3.png	Canada
+/cgi-bin/mailgraph.cgi/mailgraph_3_err.png	Intranet
+/clients.html	Unknown Location
+/dccstats/index.html	Unknown Location
+/dccstats/stats-hashes.1year.png	Wherever You Want to Ship
+/dccstats/stats-spam-ratio.1day.png	Unknown Location
+/dccstats/stats-spam-ratio.1month.png	United States
+/dccstats/stats-spam-ratio.1year.png	Unknown Location
+/dccstats/stats-spam.1day.png	Unknown Location
+/dccstats/stats-spam.1month.png	Unknown Location
+/favicon.ico	Denmark, United Kingdom, Unknown Location
+/icons/PythonPowered.png	Canada, Unknown Location
+/icons/gnu-head-tiny.jpg	Canada, Unknown Location
+/icons/mailman.jpg	Canada
+/images/image004.jpg	Canada
+/images/image005.jpg	Canada
+/images/msgops.JPG	Canada, Unknown Location
+/mailman/listinfo/cnc_notice	Australia
+/mailman/listinfo/cncce	Korea
+/mailman/listinfo/ppwc	Canada, United States
+/mailman/listinfo/webber	United States, Unknown Location
+/pipermail/cipg/2003-november.txt	Unknown Location
+/pipermail/cnc_notice/2003-December.txt	Canada
+/pipermail/cncce/2004-January.txt	Unknown Location
+/pipermail/cncce/2004-January/000001.html	Canada, Unknown Location
+/pipermail/webber/2004-January/000000.html	Unknown Location
+/razor.html	Finland, France, Los Alamos, Mexico, United Kingdom, United States, Unknown Location
+/robots.txt	Robot, Unknown Location
