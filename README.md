@@ -1,13 +1,3 @@
-rm -rf output
-rm -rf output_temp
-rm -rf output_temp_temp
-./gradlew run --args="CountryRequestCount input/access.log input/hostname_country.csv output"
-
-./gradlew run --args="CountryURLCount input/access.log input/hostname_country.csv output"
-
-./gradlew run --args="URLCountryList input/access.log input/hostname_country.csv output" 
-
-
 Dennis Kulik
 
 I chose to do a reduce side join because each mapper works as it typically would but puts an identifying tag, and the join reducer just has to check each inputs tag and then treat it accordingly. This is also more appealing than having to worry about how the size of one dataset compares to another, and whether either could fit in main memory. 
